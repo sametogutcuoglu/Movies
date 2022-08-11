@@ -13,6 +13,8 @@ protocol ListScreenDisplayLogic: AnyObject {
 
 final class ListScreenViewController: UIViewController {
     
+    @IBOutlet weak var collectionView : UICollectionView!
+    
     var interactor: ListScreenBusinessLogic?
     var router: (ListScreenRoutingLogic & ListScreenDataPassing)?
     
@@ -33,6 +35,7 @@ final class ListScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMovies()
+        collectionView.register(UINib(nibName: "ListDataCell", bundle: nil), forCellWithReuseIdentifier: "ListDataCell")
     }
     
     private func fetchMovies() {
@@ -59,4 +62,20 @@ extension ListScreenViewController: ListScreenDisplayLogic {
     func displayFetchedOffices(viewModel: ListScreen.Fetch.ViewModel) {
         Movies = viewModel.displayedMovies
     }
+}
+
+extension ListScreenViewController : UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListDataCell", for: indexPath)
+                as? ListDataCell else { return UICollectionViewCell() }
+        cell.configure(viewModel: Movies[indexPath.row])
+        return cell
+    }
+    
+    
 }
