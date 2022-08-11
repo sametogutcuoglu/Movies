@@ -8,13 +8,15 @@
 import UIKit
 
 protocol ListScreenDisplayLogic: AnyObject {
-    
+    func displayFetchedOffices(viewModel: ListScreen.Fetch.ViewModel)
 }
 
 final class ListScreenViewController: UIViewController {
     
     var interactor: ListScreenBusinessLogic?
     var router: (ListScreenRoutingLogic & ListScreenDataPassing)?
+    
+    var Movies: [ListScreen.Fetch.ViewModel.Movie] = []
     
     // MARK: Object lifecycle
     
@@ -26,6 +28,15 @@ final class ListScreenViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchMovies()
+    }
+    
+    private func fetchMovies() {
+        interactor?.getMovies()
     }
     
     // MARK: Setup
@@ -45,5 +56,7 @@ final class ListScreenViewController: UIViewController {
 }
 
 extension ListScreenViewController: ListScreenDisplayLogic {
-    
+    func displayFetchedOffices(viewModel: ListScreen.Fetch.ViewModel) {
+        Movies = viewModel.displayedMovies
+    }
 }

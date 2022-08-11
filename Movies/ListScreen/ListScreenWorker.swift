@@ -8,9 +8,20 @@
 import Foundation
 
 protocol ListScreenWorkingLogic: AnyObject {
-    
+    func getMovies(complation : @escaping ((Result<Movies,Error>) -> Void))
 }
 
 final class ListScreenWorker: ListScreenWorkingLogic {
+    func getMovies(complation: @escaping ((Result<Movies, Error>) -> Void)) {
+        NetworkManager().getFetchOffice { result in
+            switch result {
+            case .success(let response):
+                complation(.success(response))
+            case .failure(let error):
+                complation(.failure(error))
+            }
+        }
+    }
+    
     
 }

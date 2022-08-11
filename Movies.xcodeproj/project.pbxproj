@@ -18,6 +18,8 @@
 		5B719F0728A561C40079F3DA /* ListScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B719F0028A561C40079F3DA /* ListScreenModels.swift */; };
 		5B719F0828A561C40079F3DA /* ListScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B719F0128A561C40079F3DA /* ListScreenWorker.swift */; };
 		5B719F0928A561C40079F3DA /* ListScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B719F0228A561C40079F3DA /* ListScreenRouter.swift */; };
+		5B722FD728A571F800740F86 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B722FD628A571F800740F86 /* Movies.swift */; };
+		5B722FD928A575E300740F86 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B722FD828A575E300740F86 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		5B719F0028A561C40079F3DA /* ListScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenModels.swift; sourceTree = "<group>"; };
 		5B719F0128A561C40079F3DA /* ListScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenWorker.swift; sourceTree = "<group>"; };
 		5B719F0228A561C40079F3DA /* ListScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenRouter.swift; sourceTree = "<group>"; };
+		5B722FD628A571F800740F86 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		5B722FD828A575E300740F86 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		5B719EE528A55FBB0079F3DA /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				5B722FD328A571CF00740F86 /* NetworkManager */,
 				5B719EFB28A561970079F3DA /* ListScreen */,
 				5B719EFA28A5617F0079F3DA /* System */,
 				5B719EEF28A55FBC0079F3DA /* Assets.xcassets */,
@@ -96,6 +101,31 @@
 				5B719F0228A561C40079F3DA /* ListScreenRouter.swift */,
 			);
 			path = ListScreen;
+			sourceTree = "<group>";
+		};
+		5B722FD328A571CF00740F86 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				5B722FD428A571D500740F86 /* API */,
+				5B722FD828A575E300740F86 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		5B722FD428A571D500740F86 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5B722FD528A571EC00740F86 /* Response */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5B722FD528A571EC00740F86 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				5B722FD628A571F800740F86 /* Movies.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,11 +201,13 @@
 			files = (
 				5B719F0628A561C40079F3DA /* ListScreenInteractor.swift in Sources */,
 				5B719F0928A561C40079F3DA /* ListScreenRouter.swift in Sources */,
+				5B722FD928A575E300740F86 /* NetworkManager.swift in Sources */,
 				5B719F0428A561C40079F3DA /* ListScreenViewController.swift in Sources */,
 				5B719EE728A55FBB0079F3DA /* AppDelegate.swift in Sources */,
 				5B719EE928A55FBB0079F3DA /* SceneDelegate.swift in Sources */,
 				5B719F0528A561C40079F3DA /* ListScreenPresenter.swift in Sources */,
 				5B719F0728A561C40079F3DA /* ListScreenModels.swift in Sources */,
+				5B722FD728A571F800740F86 /* Movies.swift in Sources */,
 				5B719F0828A561C40079F3DA /* ListScreenWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

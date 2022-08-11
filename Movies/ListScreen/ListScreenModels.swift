@@ -10,21 +10,35 @@ import Foundation
 // swiftlint:disable nesting
 enum ListScreen {
     
-    enum Case {
+    enum Fetch {
         
         struct Request {
             
         }
         
         struct Response {
-            
+            var movies : Movies
         }
         
         struct ViewModel {
+            struct Movie {
+  
+            let adult: Bool?
+            let backdropPath: String?
+            let genreIDS: [Int]?
+            let id: Int?
+            let originalLanguage: OriginalLanguage?
+            let originalTitle, overview: String?
+            let popularity: Double?
+            let posterPath, releaseDate, title: String?
+            let video: Bool?
+            let voteAverage: Double?
+            let voteCount: Int?
+            }
             
+            var displayedMovies : [Movie]
         }
         
     }
     
 }
-// swiftlint:enable nesting
