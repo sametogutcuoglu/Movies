@@ -22,6 +22,14 @@
 		5B719F0928A561C40079F3DA /* ListScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B719F0228A561C40079F3DA /* ListScreenRouter.swift */; };
 		5B722FD728A571F800740F86 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B722FD628A571F800740F86 /* Movies.swift */; };
 		5B722FD928A575E300740F86 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B722FD828A575E300740F86 /* NetworkManager.swift */; };
+		5B751C8A28A5A1CC00757A48 /* DetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B751C8328A5A1CC00757A48 /* DetailScreen.storyboard */; };
+		5B751C8B28A5A1CC00757A48 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C8428A5A1CC00757A48 /* DetailScreenViewController.swift */; };
+		5B751C8C28A5A1CC00757A48 /* DetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C8528A5A1CC00757A48 /* DetailScreenPresenter.swift */; };
+		5B751C8D28A5A1CC00757A48 /* DetailScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C8628A5A1CC00757A48 /* DetailScreenInteractor.swift */; };
+		5B751C8E28A5A1CC00757A48 /* DetailScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C8728A5A1CC00757A48 /* DetailScreenModels.swift */; };
+		5B751C8F28A5A1CC00757A48 /* DetailScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C8828A5A1CC00757A48 /* DetailScreenWorker.swift */; };
+		5B751C9028A5A1CC00757A48 /* DetailScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C8928A5A1CC00757A48 /* DetailScreenRouter.swift */; };
+		5B751C9228A5AA9D00757A48 /* DetailMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B751C9128A5AA9D00757A48 /* DetailMovie.swift */; };
 		75BEE981B3BA780A396A3450 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22D7DD91645A3EAC9A464DC /* Pods_Movies.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +52,14 @@
 		5B719F0228A561C40079F3DA /* ListScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreenRouter.swift; sourceTree = "<group>"; };
 		5B722FD628A571F800740F86 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		5B722FD828A575E300740F86 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5B751C8328A5A1CC00757A48 /* DetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailScreen.storyboard; sourceTree = "<group>"; };
+		5B751C8428A5A1CC00757A48 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
+		5B751C8528A5A1CC00757A48 /* DetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenPresenter.swift; sourceTree = "<group>"; };
+		5B751C8628A5A1CC00757A48 /* DetailScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenInteractor.swift; sourceTree = "<group>"; };
+		5B751C8728A5A1CC00757A48 /* DetailScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenModels.swift; sourceTree = "<group>"; };
+		5B751C8828A5A1CC00757A48 /* DetailScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenWorker.swift; sourceTree = "<group>"; };
+		5B751C8928A5A1CC00757A48 /* DetailScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenRouter.swift; sourceTree = "<group>"; };
+		5B751C9128A5AA9D00757A48 /* DetailMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovie.swift; sourceTree = "<group>"; };
 		C4BD5A51A215974FEF5A1F9D /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
 		F22D7DD91645A3EAC9A464DC /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +97,7 @@
 		5B719EE528A55FBB0079F3DA /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				5B751C8228A5A1A600757A48 /* DetailScreen */,
 				5B722FD328A571CF00740F86 /* NetworkManager */,
 				5B719EFB28A561970079F3DA /* ListScreen */,
 				5B719EFA28A5617F0079F3DA /* System */,
@@ -136,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5B722FD628A571F800740F86 /* Movies.swift */,
+				5B751C9128A5AA9D00757A48 /* DetailMovie.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -147,6 +165,20 @@
 				5B56F3C528A586C600B33B68 /* ListDataCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5B751C8228A5A1A600757A48 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5B751C8328A5A1CC00757A48 /* DetailScreen.storyboard */,
+				5B751C8428A5A1CC00757A48 /* DetailScreenViewController.swift */,
+				5B751C8528A5A1CC00757A48 /* DetailScreenPresenter.swift */,
+				5B751C8628A5A1CC00757A48 /* DetailScreenInteractor.swift */,
+				5B751C8728A5A1CC00757A48 /* DetailScreenModels.swift */,
+				5B751C8828A5A1CC00757A48 /* DetailScreenWorker.swift */,
+				5B751C8928A5A1CC00757A48 /* DetailScreenRouter.swift */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 		6E8A19A7B800828A85D763E4 /* Frameworks */ = {
@@ -163,7 +195,6 @@
 				59965E93A3279FA46C8CA449 /* Pods-Movies.debug.xcconfig */,
 				C4BD5A51A215974FEF5A1F9D /* Pods-Movies.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -229,6 +260,7 @@
 			files = (
 				5B719F0328A561C40079F3DA /* ListScreen.storyboard in Resources */,
 				5B719EF328A55FBC0079F3DA /* LaunchScreen.storyboard in Resources */,
+				5B751C8A28A5A1CC00757A48 /* DetailScreen.storyboard in Resources */,
 				5B719EF028A55FBC0079F3DA /* Assets.xcassets in Resources */,
 				5B56F3C728A586C600B33B68 /* ListDataCell.xib in Resources */,
 			);
@@ -283,12 +315,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B751C8F28A5A1CC00757A48 /* DetailScreenWorker.swift in Sources */,
 				5B719F0628A561C40079F3DA /* ListScreenInteractor.swift in Sources */,
 				5B719F0928A561C40079F3DA /* ListScreenRouter.swift in Sources */,
 				5B722FD928A575E300740F86 /* NetworkManager.swift in Sources */,
+				5B751C8E28A5A1CC00757A48 /* DetailScreenModels.swift in Sources */,
+				5B751C8D28A5A1CC00757A48 /* DetailScreenInteractor.swift in Sources */,
+				5B751C8C28A5A1CC00757A48 /* DetailScreenPresenter.swift in Sources */,
 				5B719F0428A561C40079F3DA /* ListScreenViewController.swift in Sources */,
+				5B751C9028A5A1CC00757A48 /* DetailScreenRouter.swift in Sources */,
 				5B719EE728A55FBB0079F3DA /* AppDelegate.swift in Sources */,
 				5B719EE928A55FBB0079F3DA /* SceneDelegate.swift in Sources */,
+				5B751C9228A5AA9D00757A48 /* DetailMovie.swift in Sources */,
+				5B751C8B28A5A1CC00757A48 /* DetailScreenViewController.swift in Sources */,
 				5B719F0528A561C40079F3DA /* ListScreenPresenter.swift in Sources */,
 				5B719F0728A561C40079F3DA /* ListScreenModels.swift in Sources */,
 				5B722FD728A571F800740F86 /* Movies.swift in Sources */,

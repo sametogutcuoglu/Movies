@@ -27,7 +27,7 @@ final class ListScreenInteractor: ListScreenBusinessLogic, ListScreenDataStore {
             case .success(let data):
                 self.movie = data
                 let response = ListScreen.Fetch.Response(movies: data)
-                self.presenter?.presentOffices(response: response)
+                self.presenter?.presentMovies(response: response)
             case .failure(let error):
                 print(error)
                 self.presenter?.Alert(AlertMessage: "Hata oluştu !  \(error)")

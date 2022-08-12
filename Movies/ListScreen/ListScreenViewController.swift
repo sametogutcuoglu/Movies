@@ -9,6 +9,7 @@ import UIKit
 
 protocol ListScreenDisplayLogic: AnyObject {
     func displayFetchedOffices(viewModel: ListScreen.Fetch.ViewModel)
+    func moviesToDetail(index : Int)
 }
 
 final class ListScreenViewController: UIViewController {
@@ -59,6 +60,10 @@ final class ListScreenViewController: UIViewController {
 }
 
 extension ListScreenViewController: ListScreenDisplayLogic {
+    func moviesToDetail(index: Int) {
+        router?.routerToOfficeDetail(index: index)
+    }
+    
     func displayFetchedOffices(viewModel: ListScreen.Fetch.ViewModel) {
         Movies = viewModel.displayedMovies
     }
@@ -66,15 +71,20 @@ extension ListScreenViewController: ListScreenDisplayLogic {
 
 extension ListScreenViewController : UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListDataCell", for: indexPath)
                 as? ListDataCell else { return UICollectionViewCell() }
-        cell.configure(viewModel: Movies[indexPath.row])
+        let rowMoview = Movies[indexPath.row]
+        cell.configure(viewModel: rowMoview)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        moviesToDetail(index: indexPath.row)
     }
     
     

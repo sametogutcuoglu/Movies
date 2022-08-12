@@ -13,7 +13,7 @@ protocol ListScreenWorkingLogic: AnyObject {
 
 final class ListScreenWorker: ListScreenWorkingLogic {
     func getMovies(complation: @escaping ((Result<Movies, Error>) -> Void)) {
-        NetworkManager().getFetchOffice { result in
+        NetworkManager().getFetcMovies {  result in
             switch result {
             case .success(let response):
                 complation(.success(response))
