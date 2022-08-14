@@ -8,14 +8,16 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    func getFetcMovies(complation: @escaping ((Result<Movies, Error>) -> Void))
-    func getFetcMovie(movieId : Int,complation: @escaping ((Result<DetailMovie, Error>) -> Void))
+    func getFetchMovies(complation: @escaping ((Result<Movies, Error>) -> Void))
+    func getNowPlaying(complation: @escaping ((Result<NowPlayingMovies, Error>) -> Void))
+    func getFetchDetailMovie(movieId : Int,complation: @escaping ((Result<DetailMovie, Error>) -> Void))
+    
 }
 
 struct NetworkManager : NetworkManagerProtocol {
-    
-    func getFetcMovies(complation: @escaping ((Result<Movies, Error>) -> Void))  {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=427850bdab99077035ddf9d6bacf3253")
+    func getNowPlaying(complation: @escaping ((Result<NowPlayingMovies, Error>) -> Void)) {
+        
+        guard let url = URL(string: AppConstants.getNowPlayingUrl)
         else { return }
         let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
@@ -23,20 +25,40 @@ struct NetworkManager : NetworkManagerProtocol {
                 return
             }
             do {
-                let moviesList = try JSONDecoder().decode(Movies.self
+                let moviesList = try JSONDecoder().decode(NowPlayingMovies.self
                                                           , from: data)
                 complation(.success((moviesList)))
             }
                catch {
                      complation(.failure(NSError(domain: "decode Parse Error \(error)", code: -2)))
                 }
-         
         }
         dataTask.resume()
     }
     
-    func getFetcMovie(movieId : Int,complation: @escaping ((Result<DetailMovie, Error>) -> Void)) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieId)?api_key=427850bdab99077035ddf9d6bacf3253")
+    func getFetchMovies(complation: @escaping ((Result<Movies, Error>) -> Void))  {
+        guard let url = URL(string: AppConstants.getFetchMoviesUrl)
+        else { return }
+        let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                complation(.failure(error ?? NSError(domain: "Unkown error", code: -1)))
+                return
+            }
+            do {
+                
+                let moviesList = try JSONDecoder().decode(Movies.self
+                                                          , from: data)
+                complation(.success((moviesList)))
+            }
+               catch {
+                   complation(.failure(NSError(domain: "decode Parse Error \(error.localizedDescription)", code: -2)))
+                }
+        }
+        dataTask.resume()
+    }
+    
+    func getFetchDetailMovie(movieId : Int,complation: @escaping ((Result<DetailMovie, Error>) -> Void)) {
+        guard let url = URL(string: AppConstants.getFetchDetailMovie+"\(movieId)?api_key="+AppConstants.apiKey)
         else { return }
         let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
@@ -48,9 +70,8 @@ struct NetworkManager : NetworkManagerProtocol {
                 complation(.success((movieList)))
             }
                catch {
-                     complation(.failure(NSError(domain: "decode Parse Error \(error)", code: -2)))
+                   complation(.failure(NSError(domain: "decode Parse Error \(error.localizedDescription)", code: -2)))
                 }
-         
         }
         dataTask.resume()
     }

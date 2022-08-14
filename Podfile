@@ -7,4 +7,5 @@ target 'Movies' do
 
   # Pods for Movies
 pod 'SDWebImage', '~> 5.0'
+pod 'ImageSlideshow', '~> 1.9.0'
 end
